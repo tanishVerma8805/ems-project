@@ -41,12 +41,12 @@
                                     {{\Carbon\Carbon::parse($role->created_at)->format('d M, Y')}}
                                 </td>
                                 <td class="px-6 py-3 text-center">
-                                    @can('edit roles')
+                                    {{-- @can('edit roles') --}}
                                     <a href="{{route('roles.edit',$role->id)}}" class="bg-slate-700 hover:bg-slate-600 text-sm rounded-md text-white px-3 py-2">
                                         Edit
                                     </a>
-                                    @endcan
-                                    @can('delete roles')
+                                    {{-- @endcan --}}
+                                    {{-- @can('delete roles') --}}
                                     <a href="{{ route('roles.destroy', $role->id) }}"
                                         onclick="event.preventDefault();
                                         if(confirm('Are you sure?')){
@@ -57,7 +57,7 @@
                                             Delete
 
                                     </a> 
-                                    @endcan
+                                    {{-- @endcan --}}
                                     <form id="delete-permission-{{ $role->id }}"
                                         action="{{ route('roles.destroy', $role->id) }}"
                                         method="POST"

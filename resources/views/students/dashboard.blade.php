@@ -236,7 +236,7 @@
         <section class="grid xl:grid-cols-2 gap-8 mt-8">
 
             <!-- Achievements -->
-            <div class="bg-white rounded-[32px] p-6 luxury-shadow">
+            <div class="bg-white rounded-[32px] p-6 luxuryhui0-[-shadow">
 
                 <h2 class="text-2xl font-bold text-[#0d3a35] mb-6">
                     Achievement Badges

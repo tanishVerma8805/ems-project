@@ -7,9 +7,23 @@
             EMS
         </h1>
 
-        <p class="text-[#b1b7ab] text-sm">
-            Teacher Dashboard
-        </p>
+        {{-- @php
+            $role = 
+        @endphp --}}
+        @if(auth()->user()->hasRole('teacher'))
+            <p class="text-[#b1b7ab] text-sm">
+                Teacher Dashboard
+            </p>
+        @elseif(auth()->user()->hasRole('student'))
+             <p class="text-[#b1b7ab] text-sm">
+                Student Dashboard
+            </p>
+
+        @elseif(auth()->user()->hasRole('admin'))
+            <p class="text-[#b1b7ab] text-sm">
+                Admin Dashboard
+            </p>
+        @endif
     </div>
 
     <!-- Navigation -->
@@ -31,7 +45,7 @@
 
         <a href="{{ route('registrations.index') }}"
            class="flex items-center gap-3 px-5 py-3 rounded-2xl transition
-           {{ request()->routeIs('events.*') ? 'bg-[#276152]' : 'hover:bg-[#276152]/30' }}">
+           {{ request()->routeIs('registrations.*') ? 'bg-[#276152]' : 'hover:bg-[#276152]/30' }}">
             <span>👥</span>
             Registrations
         </a>

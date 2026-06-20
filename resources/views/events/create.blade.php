@@ -137,6 +137,18 @@
                             class="w-full border border-[#b1b7ab] rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#276152]">
                     </div>
 
+                    {{-- Venue --}}
+                    <div>
+                        <label class="block mb-2 font-semibold text-[#0d3a35]">
+                            Event Venue
+                        </label>
+
+                        <input
+                            type="text"
+                            name="venue"
+                            class="w-full border border-[#b1b7ab] rounded-2xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#276152]">
+                    </div>
+
                     <!-- Description -->
                     <div class="lg:col-span-2">
                         <label class="block mb-2 font-semibold text-[#0d3a35]">

@@ -46,10 +46,11 @@ class EventController extends Controller
             'time' => $request->time,
             'description' => $request->description
         ];
-
+        
         $created = Events::create($data);
+        // dd($created);
         if(!$created){
-            redirect()->back()->with('error','Event not created');
+            return redirect()->back()->with('error','Event not created');
         }
         return redirect()->route('events.index')->with('success','Event created successfully');
     }
@@ -67,7 +68,7 @@ class EventController extends Controller
             'name' => 'required',
             'type' => 'required',
             'organised_by' => 'required',
-            'venur' =>'required',
+            'venue' =>'required',
             'date' => 'required',
             'time' => 'required',
             'description' => 'required'
@@ -89,7 +90,7 @@ class EventController extends Controller
 
         $updated = $event->update($data);
         if(!$updated){
-            redirect()->back()->with('error','Event not updated');
+           return redirect()->back()->with('error','Event not updated');
         }
         return redirect()->route('events.index')->with('success','Event updated successfully');
     }
@@ -107,6 +108,6 @@ class EventController extends Controller
     public function destroy($id){
         $event = Events::where('id',$id)->first();
         $event->delete();
-         return redirect()->route('events.index')->with('success','Event deleted successfully');
+        return redirect()->route('events.index')->with('success','Event deleted successfully');
     }
 }
