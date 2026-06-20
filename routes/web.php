@@ -3,7 +3,9 @@
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -45,8 +47,13 @@ Route::middleware('auth')->group(function () {
     // Route::get('/articles/{id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
     // Teacher Routes
-    Route::get('/dashboard/teachers',[TeacherController::class ,'dashboard'])->name('dashboard.teacher');
+    Route::get('/dashboard/teacher',[TeacherController::class ,'dashboard'])->name('dashboard.teacher');
     
+    // Students Routes
+    Route::get('/dashboard/student',[StudentController::class, 'dashboard'])->name('dashboard.student');
+    Route::get('/student/profile',[StudentController::class, 'profile'])->name('students.profile');
+    Route::post('/student/profile',[StudentController::class, 'save'])->name('students.save');
+
 
     // Event Routes
     Route::get('/event',[EventController::class, 'index'])->name('events.index');
@@ -54,8 +61,14 @@ Route::middleware('auth')->group(function () {
     Route::post('/event/create',[EventController::class, 'store'])->name('events.store');
     Route::get('/event/{id}/edit',[EventController::class, 'edit'])->name('events.edit');
     Route::post('/event/{id}/edit',[EventController::class, 'update'])->name('events.update');
+    Route::get('/event/{id}/show',[EventController::class, 'show'])->name('events.show');
     Route::get('/event/{id}/delete',[EventController::class, 'destroy'])->name('events.delete');
 
+
+    // Registration Routes
+    Route::get('/registration',[RegistrationController::class, 'index'])->name('registrations.index');
+    Route::get('/registration/{id}/create',[RegistrationController::class, 'create'])->name('registrations.create');
+    Route::post('/registration/create',[RegistrationController::class, 'store'])->name('registrations.store');
 });
 
 require __DIR__.'/auth.php';

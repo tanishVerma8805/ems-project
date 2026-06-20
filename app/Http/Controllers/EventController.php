@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Events;
+use App\Models\Registrations;
+use App\Models\Students;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -92,6 +94,15 @@ class EventController extends Controller
         return redirect()->route('events.index')->with('success','Event updated successfully');
     }
 
+    public function show($id){
+        $event = Events::where('id',$id)->first();
+        $student = Students::where('user_id',auth()->id())->first();
+        $isRegistered = Registrations::where('event_id', $event->id)->where('student_id', $student->id)->exists();
+        return view('events.show',[
+            'event' => $event,
+            'isRegistered' => $isRegistered
+        ]);
+    }
 
     public function destroy($id){
         $event = Events::where('id',$id)->first();

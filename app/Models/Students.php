@@ -10,6 +10,6 @@ class Students extends Model
     use SoftDeletes;
     protected $primary_key = 'id';
     protected $fillable = [
-        'roll_no','course','department'
+       'user_id','roll_no','course','department'
     ];
 }

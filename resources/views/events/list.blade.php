@@ -135,7 +135,7 @@
 
                             <div class="flex gap-3 mt-6">
 
-                                <a href="#"
+                                <a href="{{route('events.show',$event->id)}}"
                                    class="flex-1 text-center bg-[#276152] text-white py-3 rounded-2xl hover:bg-[#0d3a35] transition"
                                    >
 
