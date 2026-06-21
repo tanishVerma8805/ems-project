@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\ProfileController;
@@ -16,7 +17,7 @@ Route::get('/', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard.admin');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -69,6 +70,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/registration',[RegistrationController::class, 'index'])->name('registrations.index');
     Route::get('/registration/{id}/create',[RegistrationController::class, 'create'])->name('registrations.create');
     Route::post('/registration/create',[RegistrationController::class, 'store'])->name('registrations.store');
+
+    // Attendance Routes
+    Route::get('/attendance',[AttendanceController::class, 'index'])->name('attendance.index');
+    Route::get('/attendance/{id}/show',[AttendanceController::class, 'show'])->name('attendance.show');
+    Route::post('/attendance/{id}/store',[AttendanceController::class, 'store'])->name('attendance.store');
 });
 
 require __DIR__.'/auth.php';

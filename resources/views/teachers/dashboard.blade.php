@@ -174,9 +174,9 @@
                     <a href="{{route('events.create')}}" class="bg-[#276152] text-white p-5 rounded-3xl"
                     >Create Event</a>
 
-                    <button class="bg-[#0d3a35] text-white p-5 rounded-3xl">
+                    <a href="{{ route('attendance.index') }}" class="bg-[#0d3a35] text-white p-5 py-8 rounded-3xl">
                         Attendance
-                    </button>
+                    </a>
 
                     <button class="bg-[#276152] text-white p-5 rounded-3xl">
                         Reports

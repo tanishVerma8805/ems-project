@@ -13,7 +13,6 @@ class RegistrationController extends Controller
 {
     public function index(){
         $student = Students::where('user_id',auth()->id())->first();
-        // $registrations = Registrations::where('student_id',$student->id)->get();
         $registrations = Registrations::with('event')->where('student_id', $student->id)->latest()->get();
         return view('registrations.list',[
             'registrations' => $registrations

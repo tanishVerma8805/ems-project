@@ -50,8 +50,9 @@
             Registrations
         </a>
 
-        <a href="#"
-           class="flex items-center gap-3 px-5 py-3 rounded-2xl hover:bg-[#276152]/30 transition">
+        <a href="{{ route('attendance.index') }}"
+           class="flex items-center gap-3 px-5 py-3 rounded-2xl transition
+           {{ request()->routeIs('attendance.*') ? 'bg-[#276152]' : 'hover:bg-[#276152]/30' }}">
             <span>✅</span>
             Attendance
         </a>
